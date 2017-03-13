@@ -3,13 +3,8 @@
  */
 function countCoins(){
     var amt = document.getElementById("total-amt").value;
-    // var num= amt.indexOf(".");
-    // var amt1= amt.substr(0,num);
-    // var amt2=amt.substr(num+1,amt.length);
 
     amt=parseInt(amt);
-    //amt=amt.toFixed(2);
-    //alert(amt + " "+ amt1+ " "+amt2);
     var coinArray=[];
     var coinCount=[];
     for(var i=0;i<4;i++){
@@ -17,12 +12,23 @@ function countCoins(){
         coinArray.push(element);
     }
 
+    var flag=0;
+    for(var i=0;i<coinArray.length;i++){
+        if(coinArray[i]==1){
+            flag=1;
+            break;
+        }
+    }
+    if(flag==0){
+        alert("At least one of the coin values should be 1!");
+        return;
+    }
+
+    //copying contents of coinArray into tempArray
     var tempArray=coinArray.slice();
 
+    //sorting tempArray
     tempArray.sort(function(a, b){return b-a});
-
-    console.log(coinArray);
-    console.log(tempArray);
 
     var count;
 
@@ -30,7 +36,6 @@ function countCoins(){
             count = amt/tempArray[j];
             count=parseInt(count);
             console.log("count value " + count);
-            //coinCount.push(count);
             var coinCountIndex = coinArray.indexOf(tempArray[j]);
             coinCount[coinCountIndex]=count;
             amt=amt%tempArray[j];
@@ -43,7 +48,5 @@ function countCoins(){
                 return;
             }
         }
-    //console.log(document.getElementById("fourthC").value);
-
 
 }

@@ -5,15 +5,17 @@
     <title>Coin Counter</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
+    <script src="controller.js"></script>
+
 </head>
 <body class="container">
-<h3 class="header">Coin Counter</h3>
+<h3 class="header">COIN COUNTER</h3>
 <div class="row">
 
     <div class="circle">
 
         <div class="corner-circle">
-            <input type="number" id="firstC">
+            <input type="number" id="firstC" disabled>
         </div>
 
 
@@ -30,7 +32,7 @@
     <div class="circle">
 
         <div class="corner-circle">
-            <input type="number" id="secondC">
+            <input type="number" id="secondC" disabled>
         </div>
 
 
@@ -43,7 +45,7 @@
     <div class="circle">
 
         <div class="corner-circle">
-            <input type="number" id="thirdC">
+            <input type="number" id="thirdC" disabled>
         </div>
 
 
@@ -56,7 +58,7 @@
     <div class="circle">
 
         <div class="corner-circle">
-            <input type="number" id="fourthC">
+            <input type="number" id="fourthC" disabled>
         </div>
 
 
@@ -66,12 +68,11 @@
 
     </div>
 </div>
-
+<br>
 <div class="row">
-    <input type="number" class="col-6" id="total-amt">
-    <button class="col-6" onclick="countCoins()">Calculate</button>
+    <input type="number" class="col-lg-6 col-md-6 col-sm-12" id="total-amt">
+    <button class="col-lg-6 col-md-6 col-sm-12" onclick="countCoins()">Calculate</button>
 </div>
 
-<script src="controller.js"></script>
 </body>
 </html>
