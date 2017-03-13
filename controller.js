@@ -31,16 +31,29 @@ function countCoins(){
     tempArray.sort(function(a, b){return b-a});
 
     var count;
-
+    coinCount=[-1,-1,-1,-1];
         for(var j=0;j<4;j++){
             count = amt/tempArray[j];
+            console.log(count);
             count=parseInt(count);
             console.log("count value " + count);
             var coinCountIndex = coinArray.indexOf(tempArray[j]);
+
+            //if the value is duplicate
+            while(coinCount[coinCountIndex]!=-1){
+                var tempCoinCountIndex=coinCountIndex;
+                coinCountIndex = coinArray.indexOf(tempArray[j],tempCoinCountIndex+1);
+            }
+
             coinCount[coinCountIndex]=count;
             amt=amt%tempArray[j];
             if(amt==0){
                 console.log(coinCount);
+                for(var i=0; i<coinCount.length;i++){
+                    if(coinCount[i]==(-1)){
+                        coinCount[i]=0;
+                    }
+                }
                 document.getElementById("firstC").value=coinCount[0];
                 document.getElementById("secondC").value=coinCount[1];
                 document.getElementById("thirdC").value=coinCount[2];
